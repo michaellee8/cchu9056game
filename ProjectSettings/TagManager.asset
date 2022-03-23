@@ -9,6 +9,7 @@ TagManager:
   - ScrollButton
   - CameraHolder
   - WarpedCameraHolder
+  - NotConvex
   layers:
   - Default
   - TransparentFX
