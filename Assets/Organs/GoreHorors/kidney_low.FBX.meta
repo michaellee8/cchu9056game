@@ -10,7 +10,12 @@ ModelImporter:
     3300000: //RootNode
     4300000: kidneylow
     6400000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 02 - Default
+    second: {fileID: 2100000, guid: f8c83c8889de87740b4c69460cbce644, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
