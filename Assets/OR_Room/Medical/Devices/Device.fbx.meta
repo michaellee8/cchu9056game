@@ -8,8 +8,24 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Vergruizer
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Gruizer
+    second: {fileID: 2100000, guid: b64e98eb28179e543961b7480dde1afc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_GruizerScreen
+    second: {fileID: 2100000, guid: bc64dca83686f6e46a0f8a51cc0e5e27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Brushed
+    second: {fileID: 2100000, guid: d7c8224c44377fa4f94d892bdef5d240, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +58,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

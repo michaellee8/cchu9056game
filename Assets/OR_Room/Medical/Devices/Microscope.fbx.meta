@@ -20,11 +20,42 @@ ModelImporter:
     4300000: Vent
     4300002: Microscope
     4300004: LampArm
+    6400000: Vent
     7400000: Take 001
     7400002: Anim_Microscope
     11100000: //RootNode
     13700000: Micr_Root
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0a442674c6811da4f8145e2d3ed1588a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Blue
+    second: {fileID: 2100000, guid: 095c2689032b0ae46b0e82b47578f33e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_GlassMilk
+    second: {fileID: 2100000, guid: 14ca61ab50e7775409234f79e2d38cb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Brushed
+    second: {fileID: 2100000, guid: d7c8224c44377fa4f94d892bdef5d240, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Microscope
+    second: {fileID: 2100000, guid: d62c18d7cba315a43a9231479c3cccf6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic
+    second: {fileID: 2100000, guid: bc12c7285d12b394d9291d69d4bcae2e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -57,7 +88,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

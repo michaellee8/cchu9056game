@@ -95,6 +95,24 @@ ModelImporter:
     4300030: Phaco_Boor
     4300032: Phaco_Handvat
     4300034: Phaco_Handvat_Aandraaischroef
+    6400000: Anatomisch_Pincet
+    6400002: Bimanueel_Handvat_Blue
+    6400004: Bimanueel_Handvat_Orange
+    6400006: Cartrect
+    6400008: Hoskin_22
+    6400010: IA_Handvat
+    6400012: Instrument_Box_And_Props
+    6400014: Kocher_Mosquito_Large
+    6400016: Kocher_Mosquito_Small
+    6400018: Lensen_Doos
+    6400020: Mc_Pherson
+    6400022: Ooglidspreider
+    6400024: Phaco_Boor
+    6400026: Phaco_Handvat
+    6400028: Phaco_Handvat_Aandraaischroef
+    6400030: Pinset_Cartrect
+    6400032: Schaar
+    6400034: Sweep
     11100000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects:
@@ -195,7 +213,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

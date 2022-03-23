@@ -10,8 +10,24 @@ ModelImporter:
     2300000: OR_Wall_Plate
     3300000: OR_Wall_Plate
     4300000: OR_Wall_Plate
+    6400000: OR_Wall_Plate
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: ffac381c7992fc14f81cd3e4933cb532, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_OR_Detail
+    second: {fileID: 2100000, guid: 943c38edc4e29f443af515ea4dd67a1c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_WallPlate
+    second: {fileID: 2100000, guid: 321e490562268f04981c956e4bd56af3, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +60,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

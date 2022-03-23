@@ -90,8 +90,60 @@ ModelImporter:
     4300028: AneStore_Tray11
     4300030: AneStore_Tray12
     4300032: AneStore_Tray13
+    6400000: AneStore
+    6400002: AneStore_Drawer
+    6400004: AneStore_Drawer1
+    6400006: AneStore_Part
+    6400008: AneStore_Tray
+    6400010: AneStore_Tray10
+    6400012: AneStore_Tray11
+    6400014: AneStore_Tray12
+    6400016: AneStore_Tray13
+    6400018: AneStore_Tray2
+    6400020: AneStore_Tray3
+    6400022: AneStore_Tray4
+    6400024: AneStore_Tray5
+    6400026: AneStore_Tray6
+    6400028: AneStore_Tray7
+    6400030: AneStore_Tray8
+    6400032: AneStore_Tray9
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0e30ed8e7b3d56a478a0f85c960663ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Blue
+    second: {fileID: 2100000, guid: 4704c0f98d4ac7640aefc68bd008e6ed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Grey
+    second: {fileID: 2100000, guid: 57208820641f65c44ad3bd7015efa54f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Brushed
+    second: {fileID: 2100000, guid: 97c4b1b721f1eb24ea5c2ee8e2b36695, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic_Alpha
+    second: {fileID: 2100000, guid: 6f00b76a7b07e1a4296039c699f5c58c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White
+    second: {fileID: 2100000, guid: 01c250618bf3a964f9cddee6685decb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Yellow
+    second: {fileID: 2100000, guid: f2d87416e4ae94b438a3726666c05e59, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -124,7 +176,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

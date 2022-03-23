@@ -21,6 +21,9 @@ ModelImporter:
     4300000: Arrow
     4300002: Arrow01
     4300004: Arrow02
+    6400000: Arrow
+    6400002: Arrow01
+    6400004: Arrow02
   externalObjects: {}
   materials:
     importMaterials: 0
@@ -54,7 +57,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

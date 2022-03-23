@@ -46,6 +46,12 @@ ModelImporter:
     4300012: Anest_Device
     4300014: Anesth_Tube
     4300016: Anesth_Tube_Bed
+    6400000: Anest_Device 1
+    6400002: Anest_Interactive
+    6400004: Anest_Main
+    6400006: Anesth_BlackPlastic
+    6400008: Anesth_Tube
+    6400010: Anesth_Tube_Bed
     7400000: Take 001
     7400002: Anesth
     7400004: idle
@@ -53,7 +59,47 @@ ModelImporter:
     11100000: //RootNode
     13700000: Root
     13700002: Anest_InteractivePart
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Anesth_Detail
+    second: {fileID: 2100000, guid: 41a302062a35b214e979f090a9b506b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Anesth_Screen_A
+    second: {fileID: 2100000, guid: cb46f6489e9af2441b887ad3608e3f6c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Anesth_Screen_B
+    second: {fileID: 2100000, guid: 9f6902b11f3a3e046bebea52a82c3a29, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Anesth_Transp
+    second: {fileID: 2100000, guid: b1f3d940474574941867617a79f6505e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0a442674c6811da4f8145e2d3ed1588a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_LightGreen
+    second: {fileID: 2100000, guid: 0c119a7a8a882ff4694280be73170f2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Brushed
+    second: {fileID: 2100000, guid: d7c8224c44377fa4f94d892bdef5d240, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic
+    second: {fileID: 2100000, guid: bc12c7285d12b394d9291d69d4bcae2e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -114,7 +160,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

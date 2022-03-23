@@ -10,8 +10,24 @@ ModelImporter:
     2300000: DoorWires
     3300000: DoorWires
     4300000: DoorWires
+    6400000: DoorWires
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Floor
+    second: {fileID: 2100000, guid: 209e143305b7da4408d949a3fc063163, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Floor_Orange
+    second: {fileID: 2100000, guid: 33fe7130accf21b4eb0d2da8bd0546a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White
+    second: {fileID: 2100000, guid: 391309b9464a4ad42800d46af077fde1, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +60,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

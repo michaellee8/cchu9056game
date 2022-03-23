@@ -8,8 +8,19 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Table_High
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0e30ed8e7b3d56a478a0f85c960663ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White
+    second: {fileID: 2100000, guid: 01c250618bf3a964f9cddee6685decb3, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +53,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

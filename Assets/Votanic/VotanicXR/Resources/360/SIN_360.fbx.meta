@@ -27,6 +27,10 @@ ModelImporter:
     4300002: Ball_80
     4300004: Ball_120
     4300006: Ball_160
+    6400000: Ball_120
+    6400002: Ball_160
+    6400004: Ball_40
+    6400006: Ball_80
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -60,7 +64,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

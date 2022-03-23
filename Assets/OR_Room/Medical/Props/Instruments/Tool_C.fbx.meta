@@ -8,8 +8,14 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Tool_C
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White_Instu
+    second: {fileID: 2100000, guid: 27dfb5b1b87c47e4a86c4bc979c0750b, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +48,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

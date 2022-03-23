@@ -15,8 +15,20 @@ ModelImporter:
     3300002: Electronic_Manifold_Extra
     4300000: Electronic_Manifold
     4300002: Electronic_Manifold_Extra
+    6400000: Electronic_Manifold
+    6400002: Electronic_Manifold_Extra
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Blue
+    second: {fileID: 2100000, guid: 095c2689032b0ae46b0e82b47578f33e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic
+    second: {fileID: 2100000, guid: bc12c7285d12b394d9291d69d4bcae2e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -49,7 +61,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

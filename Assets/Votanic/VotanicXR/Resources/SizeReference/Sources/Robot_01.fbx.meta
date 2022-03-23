@@ -19,6 +19,9 @@ ModelImporter:
     4300000: Robot_01
     4300002: Robot_01_Arm_R
     4300004: Robot_01_Arm_L
+    6400000: //RootNode
+    6400002: Robot_01_Arm_L
+    6400004: Robot_01_Arm_R
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -57,7 +60,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 0

@@ -10,8 +10,14 @@ ModelImporter:
     2300000: OR_Ceiling_Light
     3300000: OR_Ceiling_Light
     4300000: OR_Ceiling_Light
+    6400000: OR_Ceiling_Light
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Glow
+    second: {fileID: 2100000, guid: b7791af3c8726224488c63abe96197b4, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +50,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

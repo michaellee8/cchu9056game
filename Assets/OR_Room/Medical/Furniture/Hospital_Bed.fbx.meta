@@ -37,10 +37,40 @@ ModelImporter:
     4300006: ClipBoard_Holder
     4300008: HandGrips
     4300010: Hospital_Bed_Blanket
+    6400000: Bed_Pole
+    6400002: Blood_Bag_Holder
+    6400004: ClipBoard_Holder
+    6400006: HandGrips
+    6400008: Hospital_Bed_Blanket
     11100000: //RootNode
     13700000: Root
     13700002: Hospital_Bed
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Bed_Blanket
+    second: {fileID: 2100000, guid: 7afed6a860264424ba12653dc21a5ba7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0e30ed8e7b3d56a478a0f85c960663ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Red
+    second: {fileID: 2100000, guid: 273b61adba26dea418a683ea124c7450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Tan
+    second: {fileID: 2100000, guid: 4e2c7a763f40ff44aaf0bc8dc00cc826, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White
+    second: {fileID: 2100000, guid: 01c250618bf3a964f9cddee6685decb3, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -73,7 +103,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

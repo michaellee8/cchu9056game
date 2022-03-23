@@ -8,8 +8,14 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Lens_Box
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Lens_Box
+    second: {fileID: 2100000, guid: 1eb1209a7637bdb429c9c05f3738b200, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +48,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

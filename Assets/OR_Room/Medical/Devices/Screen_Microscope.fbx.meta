@@ -8,8 +8,34 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Screen_Microscope
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: 0a442674c6811da4f8145e2d3ed1588a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Metal_Brushed
+    second: {fileID: 2100000, guid: d7c8224c44377fa4f94d892bdef5d240, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_ORScreen
+    second: {fileID: 2100000, guid: 40dadaa228397da45839466e77ecfb9b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_OR_Detail
+    second: {fileID: 2100000, guid: 7100362d503c8ab4f9141a69df07fb27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic
+    second: {fileID: 2100000, guid: bc12c7285d12b394d9291d69d4bcae2e, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +68,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

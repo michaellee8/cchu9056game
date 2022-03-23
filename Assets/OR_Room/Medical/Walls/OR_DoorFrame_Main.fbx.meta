@@ -10,8 +10,19 @@ ModelImporter:
     2300000: OR_DoorFrame_Main
     3300000: OR_DoorFrame_Main
     4300000: OR_DoorFrame_Main
+    6400000: OR_DoorFrame_Main
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Blue
+    second: {fileID: 2100000, guid: a43e21cddb6e7454ab565c432bf97fe6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_MetalGloss
+    second: {fileID: 2100000, guid: 99069339ef462fa4cb26a5a0b0c682fc, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +55,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

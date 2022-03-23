@@ -8,8 +8,29 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: OR_Door_Small
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: ffac381c7992fc14f81cd3e4933cb532, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Blue
+    second: {fileID: 2100000, guid: a43e21cddb6e7454ab565c432bf97fe6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_MetalGloss
+    second: {fileID: 2100000, guid: 99069339ef462fa4cb26a5a0b0c682fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_ORDetail
+    second: {fileID: 2100000, guid: 9359f72da2df1614c96ba164e7c6f902, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +63,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

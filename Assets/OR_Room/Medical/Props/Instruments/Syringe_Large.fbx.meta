@@ -8,8 +8,19 @@ ModelImporter:
     2300000: //RootNode
     3300000: //RootNode
     4300000: Syringe_Large
+    6400000: //RootNode
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_MedicalStuff_Col
+    second: {fileID: 2100000, guid: 74572a9bd70ed5c4dacea687ed0ba637, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Plastic_Instru
+    second: {fileID: 2100000, guid: 1b5ea34325f5903409f60caf51cfb432, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -42,7 +53,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

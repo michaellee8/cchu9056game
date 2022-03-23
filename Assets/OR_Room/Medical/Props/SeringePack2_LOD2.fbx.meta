@@ -12,6 +12,7 @@ ModelImporter:
     2300000: SeringePack2_LOD2
     3300000: SeringePack2_LOD2
     4300000: SeringePack2_LOD2
+    6400000: SeringePack2_LOD2
     11100000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects:
@@ -52,7 +53,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

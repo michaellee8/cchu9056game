@@ -10,8 +10,14 @@ ModelImporter:
     2300000: DeskLitter_Document_B
     3300000: DeskLitter_Document_B
     4300000: DeskLitter_Document_B
+    6400000: DeskLitter_Document_B
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Documents
+    second: {fileID: 2100000, guid: e340c98adf8b270499892964e74c86f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +50,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

@@ -10,8 +10,14 @@ ModelImporter:
     2300000: OR_Wall
     3300000: OR_Wall
     4300000: OR_Wall
+    6400000: OR_Wall
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Walls
+    second: {fileID: 2100000, guid: 875360114f0f2ed44bff30fb13fdb7fd, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +50,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1

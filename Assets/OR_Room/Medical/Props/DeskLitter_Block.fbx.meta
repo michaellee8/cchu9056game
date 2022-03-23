@@ -10,8 +10,19 @@ ModelImporter:
     2300000: DeskLitter_Block
     3300000: DeskLitter_Block
     4300000: DeskLitter_Block
+    6400000: DeskLitter_Block
     11100000: //RootNode
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black
+    second: {fileID: 2100000, guid: f4ecf765767689749877c01bd349977d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_White
+    second: {fileID: 2100000, guid: 8e5895dac9dc2ab49b59fe46dce95d8f, type: 2}
   materials:
     importMaterials: 1
     materialName: 1
@@ -44,7 +55,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 0.01
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 0
     importBlendShapes: 1
