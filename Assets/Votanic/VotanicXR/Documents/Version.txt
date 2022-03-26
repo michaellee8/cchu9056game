@@ -1,0 +1,16 @@
+Votanic Library Version (20211111)
+====================================
+--- VotanicXR SDK ---
+Votanic.License - 2020.7.0
+Votanic.Core - 2020.7.0
+Votanic.Editor - 2020.7.0
+Votanic.vIO - 2020.7.0
+Votanic.vNet - 2020.7.6
+Votanic.vNet.Editor - 2020.7.6
+Votanic.vMedia - 2020.7.0
+Votanic.vXR - 2020.7.6
+Votanic.vXR.Editor - 2020.7.6
+
+
+--- External ---
+Votanic.Assets - 2020.7.5

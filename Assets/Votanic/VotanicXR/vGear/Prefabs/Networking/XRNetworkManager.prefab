@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2397889196167298198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5770539380162991779}
+  - component: {fileID: 344223710505965926}
+  m_Layer: 0
+  m_Name: XRNetworkManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5770539380162991779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397889196167298198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &344223710505965926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397889196167298198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 355252074, guid: 8fee2639614909949978164cc83bc432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  address: localhost
+  port: 7777
+  networkName: User
+  maxConnections: 4
+  autoConnect: 1
+  reconnect: 5
+  connectingBuffer: 3
+  defaultSendName: 1
+  defaultSendID: 0
+  hostMsg: Start hosting.
+  stopMsg: Stop hosting.
+  joinMsg: Connected.
+  quitMsg: Disconnected.
+  userPrefab: {fileID: 8947996213657856743, guid: b426ad47735fe894fada0beb1fbd9af8,
+    type: 3}
+  spawnPrefabs: []
+  state: 0
+  numOfUsers: 0
+  networkID: 0
+  errorLog: 
+  messages: []
+  sourcePath: 0
+  dataPath: ../Resources/Networking.json
+  loadDataOnEditor: 0
+  headIndex: -1
+  rightHandIndex: -1
+  leftHandIndex: -1
+  headEntity: Head
+  rightHandEntity: Hand
+  leftHandEntity: Hand2
+  entityDisplay: 6
+  identityDisplay: 4
+  headPrefabs:
+  - {fileID: 6774306754267640238, guid: 7b99679c33658214cad2b2ad91218cca, type: 3}
+  - {fileID: 166319946617623107, guid: 9f2f59b0752d325429628552dd95b752, type: 3}
+  - {fileID: 477099858579201832, guid: e70298a48440cf745a0a2ae539597e94, type: 3}
+  rightHandPrefabs:
+  - {fileID: 8599185421965398499, guid: 9f7f1cd8a03ca3e4bb9255d175f5e2bf, type: 3}
+  - {fileID: 7543997977318798671, guid: f3551d4b5b609c24e938335da05c315b, type: 3}
+  leftHandPrefabs:
+  - {fileID: 852874506106005217, guid: 8b139d75ebd7e17459e2f1378be3596a, type: 3}
+  - {fileID: 5833885500650446359, guid: 030a58d4787bd0449bd48de170cc4981, type: 3}
