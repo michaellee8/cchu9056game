@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Waypoint
+  - ScrollRegion
+  - ScrollButton
+  - CameraHolder
+  - WarpedCameraHolder
+  - NotConvex
   layers:
   - Default
   - TransparentFX
@@ -31,12 +37,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - vLayerLeft
+  - vLayerRight
+  - vLayerInteractables
+  - vLayerWall
+  - vLayerFloor
+  - vLayerCore
   m_SortingLayers:
   - name: Default
     uniqueID: 0
