@@ -77,6 +77,12 @@ namespace Script.Game
                     var step = Vector3.zero;
                     step[i] = meshBound.size[i] / finalDimension[i];
 
+                    if (i == 0)
+                    {
+                        // avoid infinite normal
+                        step.y += 0.001f;
+                    }
+
                     temList.AddRange(Slice(o, begin + meshBound.center, step, finalDimension[i]));
                 });
                 _slicedMeshes = temList;
