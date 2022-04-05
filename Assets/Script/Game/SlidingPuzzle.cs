@@ -4,11 +4,29 @@ using System.Collections.Generic;
 using System.Linq;
 using EzySlice;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Plane = EzySlice.Plane;
 using Random = UnityEngine.Random;
 
 namespace Script.Game
 {
+    public class LocationMeta : Object
+    {
+        public Vector3Int CurrentLocation;
+        private readonly Vector3Int DefaultLocation;
+
+        public LocationMeta(Vector3Int currentLocation, Vector3Int defaultLocation)
+        {
+            CurrentLocation = currentLocation;
+            DefaultLocation = defaultLocation;
+        }
+
+        public bool isDefaultLocation()
+        {
+            return CurrentLocation == DefaultLocation;
+        }
+    }
+
     public class SlidingPuzzle : MonoBehaviour
     {
 
@@ -16,9 +34,10 @@ namespace Script.Game
         [SerializeField] private GameObject mainMesh;
         [SerializeField] private Material crossSectionMaterial;
 
+        private Vector3 _mainMeshScale;
+
         [SerializeField] private Vector3Int finalDimension;
         private List<GameObject> _slicedMeshes = new List<GameObject>();
-        private List<GameObject> _slicedScatteredMeshes;
 
         private Vector3Int _emptySpace = Vector3Int.zero;
         private Vector3 _midVertex;
@@ -47,8 +66,44 @@ namespace Script.Game
             return result;
         }
 
+        private List<GameObject> SliceByDimension(GameObject obj, Vector3Int dimension)
+        {
+            var result = new List<GameObject>
+            {
+                obj
+            };
+
+            for (var i = 0; i < 3; ++i)
+            {
+                var temList = new List<GameObject>();
+
+                result.ForEach(o =>
+                {
+                    var meshBound = o.GetComponent<MeshFilter>().sharedMesh.bounds;
+
+                    var begin = Vector3.zero;
+                    begin[i] = -meshBound.size[i] / 2;
+
+                    var step = Vector3.zero;
+                    step[i] = meshBound.size[i] / dimension[i];
+
+                    if (i == 0)
+                    {
+                        // avoid infinite normal
+                        step.y += 0.001f;
+                    }
+
+                    temList.AddRange(Slice(o, begin + meshBound.center, step, dimension[i]));
+                });
+                result = temList;
+            }
+
+            return result;
+        }
+
         private void Start()
         {
+            UnityEngine.Cursor.lockState = CursorLockMode.Locked;
             if (!mainMesh.TryGetComponent<MeshFilter>(out _))
             {
                 mainMesh = GetComponentInChildren<MeshFilter>().gameObject;
@@ -60,38 +115,18 @@ namespace Script.Game
 
             var mainObj = mainMesh;
             if (mainObj.scene.name == null) mainObj = Instantiate(mainMesh);
-            ResetTransform(mainObj);
+            _mainMeshScale = mainObj.transform.localScale;
+            // ResetTransform(mainObj);
 
-            _slicedMeshes.Add(mainObj);
-            for (var i = 0; i < 3; ++i)
+            _slicedMeshes = SliceByDimension(mainObj, finalDimension);
+            for (var i = 0; i < _slicedMeshes.Count; i++)
             {
-                var temList = new List<GameObject>();
-
-                _slicedMeshes.ForEach(o =>
-                {
-                    var meshBound = o.GetComponent<MeshFilter>().sharedMesh.bounds;
-
-                    var begin = Vector3.zero;
-                    begin[i] = -meshBound.size[i] / 2;
-
-                    var step = Vector3.zero;
-                    step[i] = meshBound.size[i] / finalDimension[i];
-
-                    if (i == 0)
-                    {
-                        // avoid infinite normal
-                        step.y += 0.001f;
-                    }
-
-                    temList.AddRange(Slice(o, begin + meshBound.center, step, finalDimension[i]));
-                });
-                _slicedMeshes = temList;
+                _slicedMeshes[i].AddComponent<GearOnSelect>().data = new LocationMeta(Vector3Int.FloorToInt(IndexToVector(i)), Vector3Int.FloorToInt(IndexToVector(i)));
+                _slicedMeshes[i].AddComponent<MeshCollider>().convex = true;
+                _slicedMeshes[i].transform.parent = parentObject.transform;
             }
-
-            _slicedMeshes.ForEach(o => o.transform.parent = parentObject.transform);
-            _slicedScatteredMeshes = new List<GameObject>(_slicedMeshes);
-
-            StartCoroutine(Sep());
+            
+            StartCoroutine(StartShuffle());
         }
 
         private static void ResetTransform(GameObject obj)
@@ -101,34 +136,27 @@ namespace Script.Game
             obj.transform.localScale = Vector3.one;
         }
 
-        private IEnumerator Sep()
+        private IEnumerator StartShuffle(float delay = 5)
         {
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(delay);
 
             for (var i = 0; i < _slicedMeshes.Count; i++)
             {
-                var slicedMeshComp = _slicedMeshes[i].GetComponent<MeshFilter>().sharedMesh;
-                var slicedMeshMidVertex = new Vector3(slicedMeshComp.vertices.Average(v => v.x), slicedMeshComp.vertices.Average(v => v.y), slicedMeshComp.vertices.Average(v => v.z));
+                // var slicedMeshComp = _slicedMeshes[i].GetComponent<MeshFilter>().sharedMesh;
+                // var slicedMeshMidVertex = new Vector3(slicedMeshComp.vertices.Average(v => v.x), slicedMeshComp.vertices.Average(v => v.y), slicedMeshComp.vertices.Average(v => v.z));
 
-                StartCoroutine(SmoothLerp(_slicedMeshes[i], IndexToVector(i) * 5, 1f));
+                var offset = IndexToVector(i);
+                offset.Scale(_mainMeshScale);
+                StartCoroutine(SmoothLerp(_slicedMeshes[i], offset * 5 - _slicedMeshes[i].transform.position, 1f));
                 yield return new WaitForEndOfFrame();
             }
-
-            /*
-            foreach (var slicedMesh in _slicedMeshes)
-            {
-                var slicedMeshComp = slicedMesh.GetComponent<MeshFilter>().sharedMesh;
-                var slicedMeshMidVertex = new Vector3(slicedMeshComp.vertices.Average(v => v.x), slicedMeshComp.vertices.Average(v => v.y), slicedMeshComp.vertices.Average(v => v.z));
-
-                StartCoroutine(SmoothLerp(slicedMesh, (slicedMeshMidVertex - _midVertex) * 1.1f, 1f));
-                yield return new WaitForEndOfFrame();
-            }
-            */
 
             _emptySpace = Vector3Int.zero;
             _slicedMeshes[0].SetActive(false);
 
             yield return new WaitForSeconds(2);
+
+            var previousLocation = _emptySpace;
             for (var i = 0; i < 100;)
             {
                 var temVec = _emptySpace;
@@ -137,25 +165,22 @@ namespace Script.Game
                 var offset = Random.Range(-1, 2);
                 temVec[index] += offset;
 
-                if (Move(temVec.x, temVec.y, temVec.z))
-                {
-                    yield return new WaitForSeconds(0.05f);
-                    ++i;
-                }
-            }
-        }
+                if (temVec == previousLocation) continue;
 
-        void OnDrawGizmos()
-        {
-            // Draw a yellow sphere at the transform's position
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(_emptySpace * 5, 1);
+                var temPreviousLocation = _emptySpace;
+                if (!Move(temVec.x, temVec.y, temVec.z)) continue;
+                previousLocation = temPreviousLocation;
+
+                yield return new WaitForSeconds(0.05f);
+                ++i;
+            }
         }
 
         private IEnumerator SmoothLerp(GameObject obj, Vector3 offset, float time)
         {
             var startingPos = obj.transform.position;
             var finalPos = startingPos + offset;
+
             float elapsedTime = 0;
 
             while (elapsedTime < time)
@@ -166,6 +191,11 @@ namespace Script.Game
             }
 
             obj.transform.position = finalPos;
+        }
+
+        private int GetObjectIndex(Vector3Int v)
+        {
+            return GetObjectIndex(v.x, v.y, v.z);
         }
 
         private int GetObjectIndex(int x, int y, int z)
@@ -184,12 +214,12 @@ namespace Script.Game
             return new Vector3(index % finalDimension.x, y, z);
         }
 
-        private int GetObjectIndex(Vector3Int v)
+        private bool Move(LocationMeta locationMeta)
         {
-            return GetObjectIndex(v.x, v.y, v.z);
+            return Move(locationMeta.CurrentLocation.x, locationMeta.CurrentLocation.y, locationMeta.CurrentLocation.z);
         }
 
-        public bool Move(int x, int y, int z)
+        private bool Move(int x, int y, int z)
         {
             if (x < 0 || x >= finalDimension.x || y < 0 || y >= finalDimension.y || z < 0 | z >= finalDimension.z)
             {
@@ -199,22 +229,45 @@ namespace Script.Game
             var targetCoordinate = new Vector3Int(x, y, z);
             if (Math.Abs((targetCoordinate - _emptySpace).magnitude - 1) < float.Epsilon)
             {
-                _slicedScatteredMeshes[GetObjectIndex(_emptySpace)].transform.position = _slicedScatteredMeshes[GetObjectIndex(targetCoordinate)].transform.position;
+                var emptySpaceLocationMeta = _slicedMeshes[GetObjectIndex(_emptySpace)].GetComponent<GearOnSelect>().data as LocationMeta;
+                var targetSpaceLocationMeta = _slicedMeshes[GetObjectIndex(targetCoordinate)].GetComponent<GearOnSelect>().data as LocationMeta;
+                (emptySpaceLocationMeta.CurrentLocation, targetSpaceLocationMeta.CurrentLocation) = (targetSpaceLocationMeta.CurrentLocation, emptySpaceLocationMeta.CurrentLocation);
 
-                StartCoroutine(SmoothLerp(_slicedScatteredMeshes[GetObjectIndex(targetCoordinate)], (_emptySpace - targetCoordinate) * 10, 0.05f));
-                var temVec = _slicedScatteredMeshes[GetObjectIndex(targetCoordinate)];
-                _slicedScatteredMeshes[GetObjectIndex(targetCoordinate)] = _slicedScatteredMeshes[GetObjectIndex(_emptySpace)];
-                _slicedScatteredMeshes[GetObjectIndex(_emptySpace)] = temVec;
+                _slicedMeshes[GetObjectIndex(_emptySpace)].transform.position = _slicedMeshes[GetObjectIndex(targetCoordinate)].transform.position;
+
+                Vector3 offset = _emptySpace - targetCoordinate;
+                offset.Scale(_mainMeshScale);
+
+                StartCoroutine(SmoothLerp(_slicedMeshes[GetObjectIndex(targetCoordinate)], offset * 10, 0.05f));
+                (_slicedMeshes[GetObjectIndex(targetCoordinate)], _slicedMeshes[GetObjectIndex(_emptySpace)])
+                    = ((_slicedMeshes[GetObjectIndex(_emptySpace)], _slicedMeshes[GetObjectIndex(targetCoordinate)]));
 
                 _emptySpace = targetCoordinate;
                 return true;
             }
             else
             {
-                print("failed to move");
+                // print("failed to move");
             }
 
             return false;
+        }
+
+        private void Update()
+        {
+            // no button press
+            if (!Input.GetMouseButtonDown(0))
+                return;
+
+            // can't move
+            if (_slicedMeshes.FirstOrDefault(g => g.TryGetComponent(out GearOnSelect c) && c.selected && Move(c.data as LocationMeta)) is null)
+                return;
+
+            // is all complete?
+            if (_slicedMeshes.All(g => g.TryGetComponent(out GearOnSelect c) && ((LocationMeta)c.data).isDefaultLocation()))
+            {
+                print("game over");
+            }
         }
     }
 }
