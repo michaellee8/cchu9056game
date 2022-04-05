@@ -198,6 +198,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5772d0f788634fb4695d95a090903e6a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f9333148128288f44ab4849f1b3735a7, type: 2}
     - target: {fileID: 919132149155446097, guid: 5772d0f788634fb4695d95a090903e6a,
         type: 3}
       propertyPath: m_Name
@@ -556,4 +561,4 @@ MonoBehaviour:
   mainMesh: {fileID: 106574567}
   crossSectionMaterial: {fileID: 2100000, guid: a802439e7aa57584983aa363570fd0c0,
     type: 2}
-  finalDimension: {x: 3, y: 3, z: 3}
+  finalDimension: {x: 2, y: 2, z: 2}
