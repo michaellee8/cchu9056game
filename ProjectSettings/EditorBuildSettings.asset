@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/BeautyGame/SlidePuzzle.unity
+    path: Assets/BeautyGame/SlidePuzzleIntro.unity
     guid: 6e2fc383865234e4e98d460c5e744c50
   m_configObjects: {}
