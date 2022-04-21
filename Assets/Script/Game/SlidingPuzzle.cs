@@ -195,9 +195,14 @@ namespace Script.Game
                 // var slicedMeshComp = _slicedMeshes[i].GetComponent<MeshFilter>().sharedMesh;
                 // var slicedMeshMidVertex = new Vector3(slicedMeshComp.vertices.Average(v => v.x), slicedMeshComp.vertices.Average(v => v.y), slicedMeshComp.vertices.Average(v => v.z));
 
-                var offset = IndexToVector(i);
+                var offset = IndexToVector(i) - IndexToVector(_slicedMeshes.Count - 1) / 2;
+                
+                Vector3 to = IndexToVector(i) * 2;
+                to.Scale(_mainMeshSlidedSize);
+                
                 offset.Scale(_mainMeshSlidedSize);
-                StartCoroutine(SmoothLerp(_slicedMeshes[i], offset, 1f));
+                
+                StartCoroutine(SmoothLerp(_slicedMeshes[i], to - offset, 1f));
                 yield return new WaitForEndOfFrame();
             }
 
@@ -294,12 +299,12 @@ namespace Script.Game
                 Vector3 to = _emptySpace * 2;
                 to.Scale(_mainMeshSlidedSize);
 
-                Vector3 offset = targetSpaceLocationMeta.DefaultLocation;
+                Vector3 offset = targetSpaceLocationMeta.DefaultLocation - IndexToVector(_slicedMeshes.Count - 1) / 2;
                 offset.Scale(_mainMeshSlidedSize);
-                
+
                 StartCoroutine(SmoothLerp(_slicedMeshes[GetObjectIndex(targetCoordinate)], to - offset, 0.05f));
                 (_slicedMeshes[GetObjectIndex(targetCoordinate)], _slicedMeshes[GetObjectIndex(_emptySpace)])
-                    = ((_slicedMeshes[GetObjectIndex(_emptySpace)], _slicedMeshes[GetObjectIndex(targetCoordinate)]));
+                    = (_slicedMeshes[GetObjectIndex(_emptySpace)], _slicedMeshes[GetObjectIndex(targetCoordinate)]);
 
                 _emptySpace = targetCoordinate;
                 return true;
