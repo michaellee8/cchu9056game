@@ -17,6 +17,9 @@ public class DisableRigidBody : MonoBehaviour
     {
     }
 
+    public Vector3 snapPosition;
+    public Quaternion snapRotation;
+
     private int _collidingCount;
 
     private int _prevCollidingCount;
@@ -26,11 +29,6 @@ public class DisableRigidBody : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().detectCollisions = true;
         GetComponent<Rigidbody>().isKinematic = true;
-        Debug.Log("hi");
-        foreach (var material in GetComponent<Renderer>().materials)
-        {
-            material.color = Color.black;
-        }
     }
 
     public void EnableRigidBodyNow()
@@ -38,11 +36,6 @@ public class DisableRigidBody : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Rigidbody>().detectCollisions = true;
         GetComponent<Rigidbody>().isKinematic = true;
-        Debug.Log("bye");
-        foreach (var material in GetComponent<Renderer>().materials)
-        {
-            material.color = Color.white;
-        }
     }
 
     public void OnVGearCollisionStaying()
@@ -53,19 +46,24 @@ public class DisableRigidBody : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         var vGear = GetComponent<vGear_Interactables>();
-
-        if (_collidingCount >= -5)
+        if (_collidingCount >= -15)
         {
-            _collidingCount -= 1;
+            _collidingCount -= 2;
         }
 
         if (_collidingCount > 0 && !vGear.isGrabbed)
         {
             SnapToPosition();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        var vGear = GetComponent<vGear_Interactables>();
+
 
         if (_collidingCount > 0)
         {
@@ -77,12 +75,17 @@ public class DisableRigidBody : MonoBehaviour
         }
 
         _prevCollidingCount = _collidingCount;
+
+        // if (vGear.isGrabbed)
+        // {
+        //     _collidingCount = -6;
+        // }
     }
 
     private void SnapToPosition()
     {
-        GetComponent<Transform>().position = new Vector3(3.705f, 3.609f, 10.367f);
+        GetComponent<Transform>().position = snapPosition;
 
-        GetComponent<Transform>().rotation = new Quaternion(0f, 0f, 0f, 0f);
+        GetComponent<Transform>().rotation = snapRotation;
     }
 }
