@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.UNetWeaver;
 using UnityEngine;
 using Votanic.vXR.vGear;
 
@@ -10,15 +11,15 @@ public class DisableRigidBody : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().isKinematic = true;
     }
 
     public Vector3 snapPosition;
     public Quaternion snapRotation;
+
+    public int collidingCount => _collidingCount;
+
 
     private int _collidingCount;
 
@@ -33,7 +34,7 @@ public class DisableRigidBody : MonoBehaviour
 
     public void EnableRigidBodyNow()
     {
-        GetComponent<Rigidbody>().useGravity = true;
+        GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().detectCollisions = true;
         GetComponent<Rigidbody>().isKinematic = true;
     }
@@ -46,25 +47,8 @@ public class DisableRigidBody : MonoBehaviour
         }
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        var vGear = GetComponent<vGear_Interactables>();
-        if (_collidingCount >= -15)
-        {
-            _collidingCount -= 2;
-        }
-
-        if (_collidingCount > 0 && !vGear.isGrabbed)
-        {
-            SnapToPosition();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        var vGear = GetComponent<vGear_Interactables>();
-
-
         if (_collidingCount > 0)
         {
             DisableRigidBodyNow();
@@ -74,12 +58,21 @@ public class DisableRigidBody : MonoBehaviour
             EnableRigidBodyNow();
         }
 
-        _prevCollidingCount = _collidingCount;
+        if (_collidingCount > 0 && !GetComponent<vGear_Interactables>().isGrabbed)
+        {
+            SnapToPosition();
+        }
+    }
 
-        // if (vGear.isGrabbed)
-        // {
-        //     _collidingCount = -6;
-        // }
+    private void FixedUpdate()
+    {
+        if (_collidingCount >= -15)
+        {
+            _collidingCount -= 3;
+        }
+
+
+        _prevCollidingCount = _collidingCount;
     }
 
     private void SnapToPosition()
