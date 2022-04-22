@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/BeautyGame/SlidePuzzle.unity
     guid: 6e2fc383865234e4e98d460c5e744c50
+  - enabled: 1
+    path: Assets/RecoveryRoom.unity
+    guid: 3f9bf9b629ff30148813daed4b80f908
   m_configObjects: {}
