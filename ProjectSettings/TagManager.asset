@@ -10,6 +10,7 @@ TagManager:
   - CameraHolder
   - WarpedCameraHolder
   - NotConvex
+  - Organ_Surgery_Brain
   layers:
   - Default
   - TransparentFX

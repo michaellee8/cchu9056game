@@ -13,4 +13,10 @@ public class AreaInteractionSample : MonoBehaviour
         GetComponent<Renderer>().material.color = new Color( 1f, 1f, 1f, .16f);
     }
 
+    public void OnBrainEnter()
+    {
+
+
+    }
+
 }
