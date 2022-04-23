@@ -33,7 +33,7 @@ namespace Script.Game
         private IEnumerator SpawnObject()
         {
             var tem = Instantiate(facePillarPrefab, new Vector3( 500, 0, 0), Quaternion.identity);
-            AnimatingCamera.transform.LookAt(tem.transform.FindChild("head"));
+            AnimatingCamera.transform.LookAt(tem.transform.Find("head"));
             Destroy(tem);
             
             yield return new WaitForSeconds(2);
@@ -44,8 +44,8 @@ namespace Script.Game
                 newObj.transform.parent = animationScene.transform;
                 if (i == 100)
                 {
-                    cameraLookAt = newObj.transform.FindChild("head").gameObject;
-                    pillarObj = newObj.transform.FindChild("Pillar").gameObject;
+                    cameraLookAt = newObj.transform.Find("head").gameObject;
+                    pillarObj = newObj.transform.Find("Pillar").gameObject;
                     // slidingPuzzleManager.mainMesh = cameraLookAt;
                 }
 
