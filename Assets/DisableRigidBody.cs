@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using Unity.UNetWeaver;
 using UnityEngine;
 using Votanic.vXR.vGear;
 
@@ -12,10 +13,14 @@ public class DisableRigidBody : MonoBehaviour
     {
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().isKinematic = true;
+        initialRotation = GetComponent<Transform>().rotation;
+        Debug.Log(initialRotation);
     }
 
     public Vector3 snapPosition;
-    public Quaternion snapRotation;
+    public Vector3 snapRotation;
+
+    private Quaternion initialRotation;
 
     public int collidingCount => _collidingCount;
 
@@ -61,6 +66,7 @@ public class DisableRigidBody : MonoBehaviour
         {
             SnapToPosition();
         }
+
     }
 
     private void FixedUpdate()
@@ -77,7 +83,6 @@ public class DisableRigidBody : MonoBehaviour
     private void SnapToPosition()
     {
         GetComponent<Transform>().position = snapPosition;
-
-        GetComponent<Transform>().rotation = snapRotation;
+        GetComponent<Transform>().rotation = initialRotation;
     }
 }
